@@ -1,11 +1,12 @@
 <?php
+// need set timezone
+date_default_timezone_set('Asia/Shanghai');
 
 $query = isset($argv[1]) ? $argv[1] : '';
+$value = $query;
+$sub = "";
 
-if (empty($query)) {
-	$value = "";
-	$sub = "";
-} else if (strlen($query) == 10 && intval($query) == $query) {
+if (strlen($query) == 10 && intval($query) === $query) {
     // timestamp string
     $value = date("Y-m-d H:i:s", $query);
     $sub = "copy date string";
